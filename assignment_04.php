@@ -1,9 +1,10 @@
 <?php
+// 三好先生コメント「課題4-1、2　result = 0は、なくても問題ないので削除したほうが、コードが減り、より見やすくなると思います。」
 
 // 1.引数に数値を指定して実行すると、数値を2倍にして返す関数を作成してください
 
 function double($value) {
-    $result = 0;
+    // $result = 0;は不要
     $result = $value *2;
     return $result;
 }
@@ -14,7 +15,7 @@ echo "\n";
 // 2.$a と $b を仮引数に持ち、　$a と $b　を足した結果を返す関数を作成してください。
 
 function a_plus_b($a, $b) {
-    $result = 0;
+    // $result = 0;は不要
     $result = $a + $b;
     return $result;
 }
@@ -22,28 +23,39 @@ function a_plus_b($a, $b) {
 echo a_plus_b(1,2);
 echo "\n";
 
-// 3.$arr という配列の仮引数を持ち、数値が入った配列array(1, 3, 5 ,7, 9) を渡すとその要素をすべてかけた結果を返す関数を作成してください。
+/* 3.$arr という配列の仮引数を持ち、数値が入った配列array(1, 3, 5 ,7, 9) を渡すとその要素をすべてかけた結果を返す関数を作成してください。
+三好先生コメント：
+「課題4-3　配列の中身をすべて、出力する形から入れtの要素をすべてかけた値を出す形式に修正をお願いします。*/
 
-$arr = array(1, 3, 5 ,7, 9);
-foreach($arr as $arreach)
-echo $arreach * $arreach;
+$arr = array(1, 3, 5, 7, 9);
 
+function multiply($arr){
+    
+    $total = 1;
+    foreach($arr as $arreach){
+        $total *= $arreach;
+    }
+    return $total;
+}
+
+echo multiply($arr);
 echo "\n";
 
 
-/* 4.【応用】　次のプログラムは、配列の中で一番大きい値を返す max_array という関数を実装しようとしています。途中の部分を完成させてください。*/
+/* 4.【応用】　次のプログラムは、配列の中で一番大きい値を返す max_array という関数を実装しようとしています。途中の部分を完成させてください。
+三好先生コメント：
+「課題4-3　rsort関数は使用しなくても問題なく動作すると思います。インデントが少しずれているので、修正をお願いしたいです。」*/
 
 $arr = [0, 8, 2, 3];
 
 function max_array($arr){
-    rsort($arr);
     $max_number = $arr[0];
         foreach ($arr as $a){
             if ($max_number < $a){
                 $max_number = $a;
             }
         }
-return $max_number;
+    return $max_number;
 }
 
 echo max_array ($arr);
